@@ -2,7 +2,7 @@ var city;
 
 function preload() {
 
-  var url = 'http://api.openweathermap.org/data/2.5/weather?q=Seattle,WA'+
+  var url = 'http://api.openweathermap.org/data/2.5/weather?q=London,UK'+
    '&APPID=f02124924447c73bc1d1626b1bee5f45&units=imperial';
   city = loadJSON(url);
   waterdrops = loadImage("images/water.png");
@@ -32,13 +32,43 @@ function preload() {
 
       if (time > sunrise) {
               if (time < sunset){
+                textSize(22);
+                textAlign(LEFT);
+
+                var s = "sun will set at ";
+
+                //sunrise
+                fill("grey");
+                rect(0,150,400,40);
+                fill("white");
+                text(s+sunset.toLocaleTimeString(), 80,178);
                 image(theSun, 30, 30, 100, 100, 0, 0, 100, 100);
               } else {
                 image(theMoon, 30, 30, 100, 100, 0, 0, 100, 100);
+                textSize(22);
+                textAlign(LEFT);
+
+                var q = "sun will rise at ";
+
+                //sunrise
+                fill("grey");
+                rect(0,150,400,40);
+                fill("white");
+                text(q+sunset.toLocaleTimeString(), 70,178);
               }
 
           } else{
           image(theMoon, 30, 30, 100, 100, 0, 0, 100, 100);
+          textSize(22);
+          textAlign(LEFT);
+
+          var q = "sun will rise at ";
+
+          //sunrise
+          fill("grey");
+          rect(0,150,400,40);
+          fill("white");
+          text(q+sunset.toLocaleTimeString(), 70,178);
           }
 
   noStroke();

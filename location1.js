@@ -30,16 +30,47 @@ function draw() {
   background(0,0,temp);
 
 
-      if (time > sunrise) {
-              if (time < sunset){
-                image(theSun, 30, 30, 100, 100, 0, 0, 100, 100);
-              } else {
-                image(theMoon, 30, 30, 100, 100, 0, 0, 100, 100);
-              }
+  if (time > sunrise) {
+          if (time < sunset){
+            textSize(22);
+            textAlign(LEFT);
 
-          } else{
-          image(theMoon, 30, 30, 100, 100, 0, 0, 100, 100);
+            var s = "sun will set at ";
+
+            //sunrise
+            fill("grey");
+            rect(0,150,400,40);
+            fill("white");
+            text(s+sunset.toLocaleTimeString(), 80,178);
+            image(theSun, 30, 30, 100, 100, 0, 0, 100, 100);
+          } else {
+            image(theMoon, 30, 30, 100, 100, 0, 0, 100, 100);
+            textSize(22);
+            textAlign(LEFT);
+
+            var q = "sun will rise at ";
+
+            //sunrise
+            fill("grey");
+            rect(0,150,400,40);
+            fill("white");
+            text(q+sunset.toLocaleTimeString(), 70,178);
           }
+
+      } else{
+      image(theMoon, 30, 30, 100, 100, 0, 0, 100, 100);
+      textSize(22);
+      textAlign(LEFT);
+
+      var q = "sun will rise at ";
+
+      //sunrise
+      fill("grey");
+      rect(0,150,400,40);
+      fill("white");
+      text(q+sunset.toLocaleTimeString(), 70,178);
+      }
+
 
 noStroke();
 fill('rgba(0,50,255, 0.10)');
